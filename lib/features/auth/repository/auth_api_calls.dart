@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:e_commerce/core/configs/network/helpers/api_endpoints.dart';
+import 'package:e_commerce/core/utils/helpers/network/helpers/api_endpoints.dart';
 import 'package:e_commerce/features/auth/model/login_response.dart';
 import 'package:e_commerce/features/auth/model/register_response.dart';
 

@@ -1,8 +1,16 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
 import 'package:e_commerce/features/auth/view/login/login_screen.dart';
-import 'package:e_commerce/features/layout/view/layout_screen.dart';
+import 'package:e_commerce/features/cart/view/cart_screen.dart';
+import 'package:e_commerce/features/cart/view/checkout_screen.dart';
+import 'package:e_commerce/features/favorites/view/favorites_screen.dart';
+import 'package:e_commerce/features/layout/view/drower_layout_screen.dart';
 import 'package:e_commerce/features/onboarding/onboarding_screen.dart';
 import 'package:e_commerce/features/auth/view/register/register_screen.dart';
+import 'package:e_commerce/features/profile/view/profile_screen.dart';
+import 'package:e_commerce/features/profile/view/screens/edit_profile_screen.dart';
+import 'package:e_commerce/features/profile/view/screens/orders_history_screen.dart';
+import 'package:e_commerce/features/profile/view/screens/shopping_addresses_screen.dart';
+import 'package:e_commerce/features/search/view/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -19,7 +27,31 @@ class Routes {
             builder: (BuildContext context) => RegisterScreen());
       case RoutesName.layout:
         return MaterialPageRoute(
-            builder: (BuildContext context) => const LayoutScreen());
+            builder: (BuildContext context) => DorwerLayoutScreen());
+      case RoutesName.cart:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const CartScreen());
+      case RoutesName.profile:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const ProfileScreen());
+      case RoutesName.favorites:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const FavoritesScreen());
+      case RoutesName.search:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const SearchScreen());
+      case RoutesName.checkout:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const CheckoutScreen());
+      case RoutesName.orders:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const OrdersHistoryScreen());
+      case RoutesName.addresses:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const ShoppingAddressesScreen());
+      case RoutesName.editProfile:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const EditProfileScreen());
 
       default:
         return MaterialPageRoute(builder: (_) {

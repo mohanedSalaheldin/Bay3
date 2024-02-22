@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
-import 'package:e_commerce/core/utils/components/loading_screen.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/loading_screen.dart';
 import 'package:e_commerce/features/auth/view/register/widgets/register_body.dart';
 import 'package:e_commerce/features/auth/view_model/register_view_model.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce/core/configs/network/helpers/api_response_states.dart';
+import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/features/auth/model/register_response.dart';
 import 'package:e_commerce/features/auth/repository/auth_services.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ enum RegisterStates {
   success,
 }
 
-class RegisterViewModel extends ChangeNotifier {
+class RegisterViewModel with ChangeNotifier {
   final AuthServices _services = AuthServicesImpl();
   RegisterStates _registerState = RegisterStates.notRequested;
 

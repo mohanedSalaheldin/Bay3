@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce/core/configs/network/internet_checker.dart';
+import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
 import 'package:e_commerce/features/auth/model/register_response.dart';
 
-import 'package:e_commerce/core/configs/network/helpers/api_response_states.dart';
+import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/features/auth/model/login_response.dart';
 import 'package:e_commerce/features/auth/repository/auth_api_calls.dart';
 

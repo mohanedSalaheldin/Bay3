@@ -1,6 +1,6 @@
-import 'package:e_commerce/core/utils/components/default_form_field.dart';
-import 'package:e_commerce/core/utils/constants/assets_pathes.dart';
-import 'package:e_commerce/core/utils/methods/app_methods.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_form_field.dart';
+import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
+import 'package:e_commerce/core/utils/shared/components/methods/app_methods.dart';
 import 'package:e_commerce/features/auth/view_model/register_view_model.dart';
 import 'package:flutter/material.dart';
 

@@ -1,9 +1,9 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
-import 'package:e_commerce/core/utils/components/default_button.dart';
-import 'package:e_commerce/core/utils/components/default_text_buttin.dart';
-import 'package:e_commerce/core/utils/components/snack_bars.dart';
-import 'package:e_commerce/core/utils/components/top_container_in_login_and_register.dart';
-import 'package:e_commerce/core/utils/screen_sizes/screen_sizes.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_text_buttin.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/snack_bars.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/top_container_in_login_and_register.dart';
+import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
 import 'package:e_commerce/features/auth/view/register/widgets/froms_column.dart';
 import 'package:e_commerce/features/auth/view_model/register_view_model.dart';
 import 'package:flutter/material.dart';
@@ -58,10 +58,10 @@ SafeArea buildRegisterBody(
                     provider: provider,
                   ),
                   const SizedBox(height: 20.0),
-                  DefaultButton(
+                  ConfirmButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          provider.register(
+                      provider.register(
                             userEmail: emailController.text,
                             userName: nameController.text,
                             password: passwordController.text,

@@ -1,6 +1,6 @@
-import 'package:e_commerce/core/utils/components/customized_texts.dart';
-import 'package:e_commerce/core/utils/components/default_button.dart';
-import 'package:e_commerce/core/utils/constants/assets_pathes.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/customized_texts.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
+import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
 import 'package:e_commerce/core/configs/styles/app_colors.dart';
 
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
@@ -45,7 +45,7 @@ class OnboardingScreen extends StatelessWidget {
               const SizedBox(
                 height: 30.0,
               ),
-              DefaultButton(
+              ConfirmButton(
                 txt: 'Get started',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(RoutesName.login);

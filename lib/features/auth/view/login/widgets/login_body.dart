@@ -1,12 +1,12 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
-import 'package:e_commerce/core/utils/components/default_button.dart';
-import 'package:e_commerce/core/utils/components/default_form_field.dart';
-import 'package:e_commerce/core/utils/components/default_text_buttin.dart';
-import 'package:e_commerce/core/utils/components/snack_bars.dart';
-import 'package:e_commerce/core/utils/components/top_container_in_login_and_register.dart';
-import 'package:e_commerce/core/utils/constants/assets_pathes.dart';
-import 'package:e_commerce/core/utils/methods/app_methods.dart';
-import 'package:e_commerce/core/utils/screen_sizes/screen_sizes.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_form_field.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/default_text_buttin.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/snack_bars.dart';
+import 'package:e_commerce/core/utils/shared/components/widgets/top_container_in_login_and_register.dart';
+import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
+import 'package:e_commerce/core/utils/shared/components/methods/app_methods.dart';
+import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
 import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +93,7 @@ SafeArea buildLoginBody(
                   const SizedBox(
                     height: 10.0,
                   ),
-                  DefaultButton(
+                  ConfirmButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         provider.login(

@@ -1,12 +1,14 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce/core/configs/cache_helper/cache_helper.dart';
-import 'package:e_commerce/core/configs/network/helpers/api_response_states.dart';
+import 'package:e_commerce/core/utils/helpers/cache_helper/cache_helper.dart';
+import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/features/auth/model/login_response.dart';
 import 'package:e_commerce/features/auth/repository/auth_services.dart';
 import 'package:flutter/material.dart';
 
-// ignore: constant_identifier_names
 const String USER_TOKEN_KEY = 'token';
+String USER_TOKEN_VALUE = '';
 
 enum LoginStates {
   notRequested,
@@ -15,11 +17,12 @@ enum LoginStates {
   success,
 }
 
-class LoginViewModel extends ChangeNotifier {
+class LoginViewModel with ChangeNotifier {
   final AuthServices _services = AuthServicesImpl();
   final CacheHelper _cacheHelper = CacheHelperImpl();
 
   LoginStates _loginState = LoginStates.notRequested;
+
   bool _passwordShown = true;
   LoginResponseModel? _loginResult;
 
@@ -63,7 +66,9 @@ class LoginViewModel extends ChangeNotifier {
         setLoginResult(
             LoginResponseModel(status: model.status, message: model.message));
         if (model.status == true) {
+          USER_TOKEN_VALUE = model.userData!.token;
           _cacheHelper.saveData(USER_TOKEN_KEY, model.userData!.token);
+
           setLoginState(LoginStates.success);
         } else {
           setLoginState(LoginStates.error);
