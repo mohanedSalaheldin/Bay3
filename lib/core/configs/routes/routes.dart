@@ -8,8 +8,8 @@ import 'package:e_commerce/features/onboarding/onboarding_screen.dart';
 import 'package:e_commerce/features/auth/view/register/register_screen.dart';
 import 'package:e_commerce/features/profile/view/profile_screen.dart';
 import 'package:e_commerce/features/profile/view/screens/edit_profile_screen.dart';
-import 'package:e_commerce/features/profile/view/screens/orders_history_screen.dart';
-import 'package:e_commerce/features/profile/view/screens/shopping_addresses_screen.dart';
+import 'package:e_commerce/features/orders/view/orders_history_screen.dart';
+import 'package:e_commerce/features/addresses/view/shopping_addresses_screen.dart';
 import 'package:e_commerce/features/search/view/search_screen.dart';
 import 'package:flutter/material.dart';
 

@@ -13,4 +13,5 @@ class ApiEndPoints {
   static const String profile = 'profile';
   static const String addresses = 'addresses';
   static const String updateProfile = 'update-profile';
+  static const String orders = 'orders';
 }

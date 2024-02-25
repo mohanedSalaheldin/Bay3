@@ -1,13 +1,12 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
-import 'package:e_commerce/core/utils/helpers/cache_helper/cache_helper.dart';
 import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
-import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:e_commerce/features/cart/view_model/cart_view_model.dart';
 import 'package:e_commerce/features/favorites/view_model/favorites_view_model.dart';
 import 'package:e_commerce/features/home/view/home_screen.dart';
 import 'package:e_commerce/features/layout/view/widgets/layout_botton_nav.dart';
 import 'package:e_commerce/features/layout/view/widgets/layout_screen_appbar.dart';
 import 'package:e_commerce/features/layout/view_model/layout_veiw_model.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
@@ -62,11 +61,14 @@ class LayoutScreen extends StatelessWidget {
                 break;
               case 2:
                 Provider.of<ProfileViewModel>(context, listen: false)
-                  ..getAddresses()
-                  ..getProfileData();
+                    .getProfileData();
+                Provider.of<AddressesViewModel>(context, listen: false)
+                    .getAddresses();
                 Navigator.pushNamed(context, RoutesName.profile);
                 break;
               case 3:
+                Provider.of<ProfileViewModel>(context, listen: false)
+                    .getProfileData();
                 Provider.of<CartViewModel>(context, listen: false).getCarts();
                 Navigator.pushNamed(context, RoutesName.cart);
                 break;

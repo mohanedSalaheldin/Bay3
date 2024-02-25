@@ -3,10 +3,14 @@ import 'package:date_format/date_format.dart';
 import 'package:e_commerce/core/configs/styles/frequently_used_texts.dart';
 import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
 import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
+import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
+import 'package:e_commerce/features/addresses/model/address_model.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/cart/view/checkout_screen.dart';
 import 'package:e_commerce/features/cart/view/widgets/card_title_with_action.dart';
 import 'package:e_commerce/features/cart/view_model/cart_view_model.dart';
+import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -19,11 +23,12 @@ class PaymentBottomSheetBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<CartViewModel>(context, listen: false);
+    UserDataModel userDataModel =
+        Provider.of<ProfileViewModel>(context, listen: false).userdata;
+
     var height = ScreenSizes.getHeight(context);
-    int products = 0;
-    for (var element in provider.productQuantities.values) {
-      products += element;
-    }
+    int productsTatal = provider.cartsProducts.length;
+
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -66,7 +71,7 @@ class PaymentBottomSheetBuilder extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: products.toString(),
+                        text: productsTatal.toString(),
                       ),
                     ],
                   ),
@@ -113,7 +118,7 @@ class PaymentBottomSheetBuilder extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Rosina Dio',
+                          userDataModel.name,
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 20.0,
@@ -142,7 +147,17 @@ class PaymentBottomSheetBuilder extends StatelessWidget {
             ),
             ConfirmButton(
               txt: 'Pay now',
-              onPressed: () {},
+              onPressed: () {
+// ,,
+                provider.confirmPayment(
+                  addressID:
+                      Provider.of<AddressesViewModel>(context, listen: false)
+                          .addresses
+                          .first
+                          .id,
+                );
+                Navigator.pop(context);
+              },
             ),
           ],
         ),

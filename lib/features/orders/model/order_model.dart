@@ -13,7 +13,7 @@ class OrderQueryModel {
 
 class OrderModel {
   final int id;
-  final double total;
+  final int total;
   final String date;
   final String status;
 
@@ -27,7 +27,7 @@ class OrderModel {
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
       id: json['id'],
-      total: json['total'],
+      total: json['total'].round(),
       date: json['date'],
       status: json['status'],
     );

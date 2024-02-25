@@ -7,6 +7,8 @@ import 'package:e_commerce/features/favorites/view_model/favorites_view_model.da
 import 'package:e_commerce/features/home/view_model/home_view_model.dart';
 import 'package:e_commerce/features/layout/view_model/layout_veiw_model.dart';
 import 'package:e_commerce/features/product/view_model/product_view_model.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
+import 'package:e_commerce/features/orders/view_model/orders_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:e_commerce/features/search/view_model/search_view_model.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +45,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ProfileViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AddressesViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => OrdersViewModel(),
         ),
       ],
       builder: (context, child) => MaterialApp(

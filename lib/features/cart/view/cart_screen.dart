@@ -5,9 +5,11 @@ import 'package:e_commerce/core/utils/shared/components/screens/offline_error_sc
 import 'package:e_commerce/core/utils/shared/components/screens/server_error_screen.dart';
 import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
 import 'package:e_commerce/core/utils/shared/components/widgets/loading_screen.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/cart/view/widgets/card_title_with_action.dart';
 import 'package:e_commerce/features/cart/view/widgets/cart_product_item.dart';
 import 'package:e_commerce/features/cart/view_model/cart_view_model.dart';
+import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -99,6 +101,10 @@ class CartScreen extends StatelessWidget {
                 txt: 'Checkout',
                 backgoungColor: AppColors.mainColor,
                 onPressed: () {
+                  Provider.of<AddressesViewModel>(context, listen: false)
+                      .getAddresses();
+                  Provider.of<ProfileViewModel>(context, listen: false)
+                      .getProfileData();
                   Navigator.pushNamed(context, RoutesName.checkout);
                 },
               ),

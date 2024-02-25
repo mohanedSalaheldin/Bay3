@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
-import 'package:e_commerce/features/profile/model/address_model.dart';
+import 'package:e_commerce/features/addresses/model/address_model.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -107,7 +108,7 @@ class _AddAddressBottomSheetState extends State<AddAddressBottomSheet> {
                     notes: noteController.text,
                     latitude: 30.0616863,
                     longitude: 30.0616863);
-                Provider.of<ProfileViewModel>(context, listen: false)
+                Provider.of<AddressesViewModel>(context, listen: false)
                     .addAddress(model: model);
                 Navigator.pop(context);
               },

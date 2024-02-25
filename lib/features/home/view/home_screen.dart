@@ -7,6 +7,7 @@ import 'package:e_commerce/features/home/view/widgets/catigory_items.dart';
 import 'package:e_commerce/features/home/view/widgets/home_product_item.dart';
 import 'package:e_commerce/features/home/view/widgets/upper_container.dart';
 import 'package:e_commerce/features/home/view_model/home_view_model.dart';
+import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,7 @@ class HomeScreen extends StatelessWidget {
         } else if (provider.homeStates == HomeStates.connectionError) {
           return const OfflineErrorScreen();
         }
+
         List<List> categoryTaps = [
           provider.electronicsProducts,
           provider.clothesProducts,

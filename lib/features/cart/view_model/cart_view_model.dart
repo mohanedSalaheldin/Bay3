@@ -14,6 +14,7 @@ enum CartStates {
   success,
   addOrRemoveSuccess,
   addOrRemoveError,
+  payDone
 }
 
 class CartViewModel with ChangeNotifier {
@@ -32,29 +33,13 @@ class CartViewModel with ChangeNotifier {
 
   List<FavoriteOrCartProductModel> get cartsProducts => _cartsProducts;
 
-  final Map<int, int> _productQuantities = {};
-
-  Map<int, int> get productQuantities => _productQuantities;
-
-  void addQuantity(int productID) {
-    _productQuantities[productID] = _productQuantities[productID]! + 1;
-    _calculateTotal();
-  }
-
-  void removeQuantity(int productID) {
-    if (_productQuantities[productID]! != 1) {
-      _productQuantities[productID] = _productQuantities[productID]! - 1;
-    }
-    _calculateTotal();
-  }
-
   int _total = 0;
   int get total => _total;
   void _calculateTotal() {
     double total = 0;
-    List arrOfQuantities = _productQuantities.values.toList();
-    for (var i = 0; i < arrOfQuantities.length; i++) {
-      total += (arrOfQuantities[i] * _cartsProducts[i].price);
+
+    for (var i = 0; i < _cartsProducts.length; i++) {
+      total += (_cartsProducts[i].price);
     }
     _total = total.ceil();
     notifyListeners();
@@ -67,7 +52,7 @@ class CartViewModel with ChangeNotifier {
 
   void _getCarts() async {
     Either<Failure, List<FavoriteOrCartProductModel>> respose =
-        await _cartServices.getCartProducts(token:  USER_TOKEN_VALUE);
+        await _cartServices.getCartProducts(token: USER_TOKEN_VALUE);
     respose.fold(
       (failure) {
         setCartState(CartStates.addOrRemoveError);
@@ -79,18 +64,7 @@ class CartViewModel with ChangeNotifier {
           listOfIDs.add(element.id);
         }
         _cartsProducts = carts;
-        if (_productQuantities.isEmpty) {
-          for (var element in listOfIDs) {
-            _productQuantities[element] = 1;
-          }
-        } else {
-          // Map<int, int> quantitiesMap = {};
-          for (var element in carts) {
-            if (!_productQuantities.containsKey(element.id)) {
-              _productQuantities[element.id] = 1;
-            }
-          }
-        }
+
         _calculateTotal();
         setCartState(CartStates.addOrRemoveSuccess);
       },
@@ -99,10 +73,9 @@ class CartViewModel with ChangeNotifier {
 
   void removeCartItem(FavoriteOrCartProductModel product, int index) async {
     _cartsProducts.removeAt(index);
-    _productQuantities.remove(product.id);
     _calculateTotal();
     Either<Failure, Unit> respose = await _cartServices.addOrRemoveCart(
-        token:  USER_TOKEN_VALUE, productID: product.id);
+        token: USER_TOKEN_VALUE, productID: product.id);
     respose.fold(
       (failure) {
         if (failure is OfflineFailure) {
@@ -117,5 +90,24 @@ class CartViewModel with ChangeNotifier {
     );
 
     _getCarts();
+  }
+
+  void confirmPayment({required int addressID}) async {
+    Either<Failure, Unit> respose = await _cartServices.confirmPayment(
+        token: USER_TOKEN_VALUE, addressID: addressID);
+    respose.fold(
+      (failure) {
+        if (failure is OfflineFailure) {
+          setCartState(CartStates.connectionError);
+        } else {
+          setCartState(CartStates.serverError);
+        }
+      },
+      (_) {
+        setCartState(CartStates.payDone);
+        
+        _getCarts();
+      },
+    );
   }
 }

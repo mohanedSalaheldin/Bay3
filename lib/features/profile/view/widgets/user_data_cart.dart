@@ -1,4 +1,5 @@
-import 'package:e_commerce/features/profile/model/address_model.dart';
+import 'package:e_commerce/features/addresses/model/address_model.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -14,9 +15,11 @@ class UserDataCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ProfileViewModel>(context);
+    var addressesProvider = Provider.of<AddressesViewModel>(context);
+    var profileProvider = Provider.of<ProfileViewModel>(context);
+    
     // print(provider.addresses);
-    List<AddressModel> addresses = provider.addresses;
+    List<AddressModel> addresses = addressesProvider.addresses;
     return SizedBox(
       height: ((height / 1.9) / 2),
       width: double.infinity,
@@ -37,7 +40,7 @@ class UserDataCard extends StatelessWidget {
                 children: [
                   const SizedBox(height: 50),
                   Text(
-                    provider.userdata.name,
+                    profileProvider.userdata.name,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         fontWeight: FontWeight.w600, fontSize: 21, height: 1.0),
                   ),
@@ -55,8 +58,8 @@ class UserDataCard extends StatelessWidget {
                           width: 240,
                           child: Text(
                             addresses.isEmpty
-                                ? 'Address: UNKNOWN'
-                                : 'Address: ${addresses.first.region},${addresses.first.city},${addresses.first.details}',
+                                ? 'Address: No address added yet'
+                                : 'Address: ${addresses.first.region}, ${addresses.first.city}, ${addresses.first.details}',
                             maxLines: 2,
                             style: Theme.of(context)
                                 .textTheme

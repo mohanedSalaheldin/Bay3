@@ -6,6 +6,7 @@ import 'package:e_commerce/core/utils/shared/components/widgets/loading_screen.d
 import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
 import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
+import 'package:e_commerce/features/orders/view_model/orders_view_model.dart';
 import 'package:e_commerce/features/profile/view/widgets/profile_settings_item.dart';
 import 'package:e_commerce/features/profile/view/widgets/user_data_cart.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
@@ -18,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = ScreenSizes.getHeight(context);
-     var provider = Provider.of<ProfileViewModel>(context);
+    var provider = Provider.of<ProfileViewModel>(context);
     if (provider.profileStates == ProfileStates.loading) {
       return const LoadingScreen();
     } else if (provider.profileStates == ProfileStates.serverError) {
@@ -27,13 +28,13 @@ class ProfileScreen extends StatelessWidget {
       return const OfflineErrorScreen();
     }
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.temple_buddhist_outlined),
-        onPressed: () {
-          Provider.of<ProfileViewModel>(context, listen: false).getAddresses();
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.temple_buddhist_outlined),
+      //   onPressed: () {
+      //     Provider.of<ProfileViewModel>(context, listen: false).getAddresses();
 
-        },
-      ),
+      //   },
+      // ),
       appBar: AppBar(
         title: const Text('My Profile'),
       ),
@@ -69,6 +70,8 @@ class ProfileScreen extends StatelessWidget {
                   ProfileSettingsOptionItem(
                     title: 'Orders History',
                     onTap: () {
+                      Provider.of<OrdersViewModel>(context, listen: false)
+                          .getOrders();
                       Navigator.pushNamed(context, RoutesName.orders);
                     },
                   ),

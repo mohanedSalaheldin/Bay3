@@ -44,7 +44,7 @@ class CartPruductItem extends StatelessWidget {
         ],
       ),
       child: Container(
-        height: height * .20,
+        height: height * .15,
         width: double.infinity,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -84,65 +84,65 @@ class CartPruductItem extends StatelessWidget {
                     price: productModel.price.toString(),
                     size: 16,
                   ),
-                  Consumer<CartViewModel>(
-                    builder: (context, provider, child) => Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Quantity: ',
-                          style: TextStyle(
-                            color: Colors.grey[800],
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 25.0,
-                          width: 25.0,
-                          child: FloatingActionButton(
-                            heroTag: 't$index',
-                            onPressed: () {
-                              provider.removeQuantity(productModel.id);
-                            },
-                            isExtended: true,
-                            backgroundColor: HexColor('#7dcceb'),
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                          child: Text(
-                            provider.productQuantities[productModel.id]
-                                .toString(),
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 25.0,
-                          width: 25.0,
-                          child: FloatingActionButton(
-                            onPressed: () {
-                              provider.addQuantity(productModel.id);
-                            },
-                            heroTag: index,
-                            isExtended: true,
-                            backgroundColor: HexColor('#7dcceb'),
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Consumer<CartViewModel>(
+                  //   builder: (context, provider, child) => Row(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     children: [
+                  //       Text(
+                  //         'Quantity: ',
+                  //         style: TextStyle(
+                  //           color: Colors.grey[800],
+                  //           fontSize: 18,
+                  //           fontWeight: FontWeight.normal,
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 25.0,
+                  //         width: 25.0,
+                  //         child: FloatingActionButton(
+                  //           heroTag: 't$index',
+                  //           onPressed: () {
+                  //             provider.removeQuantity(productModel.id);
+                  //           },
+                  //           isExtended: true,
+                  //           backgroundColor: HexColor('#7dcceb'),
+                  //           child: const Icon(
+                  //             Icons.remove,
+                  //             color: Colors.white,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Padding(
+                  //         padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  //         child: Text(
+                  //           provider.productQuantities[productModel.id]
+                  //               .toString(),
+                  //           style: const TextStyle(
+                  //             color: Colors.black,
+                  //             fontSize: 24.0,
+                  //             fontWeight: FontWeight.w600,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         height: 25.0,
+                  //         width: 25.0,
+                  //         child: FloatingActionButton(
+                  //           onPressed: () {
+                  //             provider.addQuantity(productModel.id);
+                  //           },
+                  //           heroTag: index,
+                  //           isExtended: true,
+                  //           backgroundColor: HexColor('#7dcceb'),
+                  //           child: const Icon(
+                  //             Icons.add,
+                  //             color: Colors.white,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ],

@@ -6,9 +6,10 @@ import 'package:e_commerce/core/utils/shared/components/widgets/default_form_fie
 import 'package:e_commerce/core/utils/shared/components/widgets/loading_screen.dart';
 import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
-import 'package:e_commerce/features/profile/model/address_model.dart';
-import 'package:e_commerce/features/profile/view/widgets/add_address_bottom_sheet.dart';
-import 'package:e_commerce/features/profile/view/widgets/address_item.dart';
+import 'package:e_commerce/features/addresses/model/address_model.dart';
+import 'package:e_commerce/features/addresses/view/widgets/add_address_bottom_sheet.dart';
+import 'package:e_commerce/features/addresses/view/widgets/address_item.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,14 +19,14 @@ class ShoppingAddressesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ProfileViewModel>(context);
+    var provider = Provider.of<AddressesViewModel>(context);
     List<AddressModel> addresses = provider.addresses;
 
-    if (provider.profileStates == ProfileStates.loading) {
+    if (provider.addressesStates == AddressesStates.loading) {
       return const LoadingScreen();
-    } else if (provider.profileStates == ProfileStates.serverError) {
+    } else if (provider.addressesStates == AddressesStates.serverError) {
       return const ServerErrorScreen();
-    } else if (provider.profileStates == ProfileStates.connectionError) {
+    } else if (provider.addressesStates == AddressesStates.connectionError) {
       return const OfflineErrorScreen();
     }
     var height = ScreenSizes.getHeight(context);
