@@ -77,4 +77,8 @@ class ProfileViewModel with ChangeNotifier {
     );
   }
 
+  void logout() {
+    _profileServices.logout();
+    notifyListeners();
+  }
 }

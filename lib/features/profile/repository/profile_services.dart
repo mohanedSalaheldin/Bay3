@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce/core/utils/helpers/cache_helper/cache_helper.dart';
 import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
+import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:e_commerce/features/profile/repository/profile_api_calls.dart';
 
 abstract class ProfileServices {
@@ -10,6 +12,7 @@ abstract class ProfileServices {
   Future<Either<Failure, UserDataModel>> getProfile({
     required String token,
   });
+  Either<Failure, Unit> logout();
 }
 
 class ProfileServicesImpl implements ProfileServices {
@@ -50,6 +53,18 @@ class ProfileServicesImpl implements ProfileServices {
       }
     } else {
       return Left(OfflineFailure());
+    }
+  }
+
+  @override
+  Either<Failure, Unit> logout() {
+    try {
+      CacheHelper cacheHelper = CacheHelperImpl();
+      cacheHelper.saveData(USER_TOKEN_KEY, '');
+      return const Right(unit);
+    } catch (e) {
+      print(e.toString());
+      return Left(ServerFailure());
     }
   }
 }

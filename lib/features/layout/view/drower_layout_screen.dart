@@ -1,10 +1,15 @@
 import 'package:e_commerce/core/configs/routes/routes_name.dart';
 import 'package:e_commerce/core/configs/styles/app_colors.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
+import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
+import 'package:e_commerce/features/favorites/view_model/favorites_view_model.dart';
 import 'package:e_commerce/features/layout/view/layout_screen.dart';
 import 'package:e_commerce/features/layout/view/widgets/drower_list_item.dart';
+import 'package:e_commerce/features/orders/view_model/orders_view_model.dart';
+import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:provider/provider.dart';
 
 class DorwerLayoutScreen extends StatelessWidget {
   DorwerLayoutScreen({super.key});
@@ -49,21 +54,64 @@ class MenuScreen extends StatelessWidget {
               SizedBox(
                 height: ScreenSizes.getHeight(context) / 12.0,
               ),
-              drowerItem('Profile', () {}),
+              drowerItem(
+                  txt: 'Profile',
+                  icon: Icons.person_outlined,
+                  onPressed: () {
+                    Provider.of<ProfileViewModel>(context, listen: false)
+                        .getProfileData();
+                    Provider.of<AddressesViewModel>(context, listen: false)
+                        .getAddresses();
+                    Navigator.pushNamed(context, RoutesName.profile);
+                  }),
               drowerDivider(context),
-              drowerItem('My Oreders', () {}),
+              drowerItem(
+                  txt: 'My Oreders',
+                  icon: Icons.shopping_bag_outlined,
+                  onPressed: () {
+                    Provider.of<OrdersViewModel>(context, listen: false)
+                        .getOrders();
+                    Navigator.pushNamed(context, RoutesName.orders);
+                  }),
               drowerDivider(context),
-              drowerItem('Favorites', () {}),
+              drowerItem(
+                  txt: 'Favorites',
+                  icon: Icons.favorite_border,
+                  onPressed: () {
+                    Provider.of<FavoritesViewModel>(context, listen: false)
+                        .getFavorites();
+                    Navigator.pushNamed(context, RoutesName.favorites);
+                  }),
               drowerDivider(context),
-              drowerItem('FAQs', () {}),
+              drowerItem(
+                  txt: 'FAQs',
+                  icon: Icons.question_answer_outlined,
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.fAQs);
+                  }),
               drowerDivider(context),
-              drowerItem('Terms', () {}),
+              drowerItem(
+                  txt: 'Terms',
+                  icon: Icons.rule_folder_outlined,
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.terms);
+                  }),
               drowerDivider(context),
-              drowerItem('About', () {}),
+              drowerItem(
+                  txt: 'About',
+                  icon: Icons.info_outline,
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.about);
+                  }),
               const Spacer(),
-              drowerItem('Sign out', () {
-                Navigator.pushReplacementNamed(context, RoutesName.login);
-              }),
+              drowerItem(
+                  txt: 'Sign out',
+                  icon: Icons.logout,
+                  onPressed: () {
+                    Provider.of<ProfileViewModel>(context, listen: false)
+                        .logout();
+                    Navigator.pushReplacementNamed(context, RoutesName.login);
+                  }),
               SizedBox(
                 height: ScreenSizes.getHeight(context) / 12.0,
               ),

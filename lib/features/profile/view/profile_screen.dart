@@ -77,7 +77,10 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   ProfileSettingsOptionItem(
                     title: 'Logout',
-                    onTap: () {},
+                    onTap: () {
+                      provider.logout();
+                      Navigator.pushReplacementNamed(context, RoutesName.login);
+                    },
                   ),
                 ],
               ),

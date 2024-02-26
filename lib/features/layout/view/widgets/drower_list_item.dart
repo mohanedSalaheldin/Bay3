@@ -20,15 +20,18 @@ Padding drowerDivider(context) {
 }
 
 Widget drowerItem(
-  String txt,
-  void Function()? onPressed,
+  {
+  required  String txt,
+ required void Function()? onPressed,
+  required IconData icon
+  }
   
 ) {
   return TextButton(
     onPressed: onPressed,
     child: Row(
       children: [
-        const Icon(Icons.person_4_outlined, color: Colors.white),
+         Icon(icon, color: Colors.white),
         const SizedBox(width: 10.0),
         Text(
           txt,

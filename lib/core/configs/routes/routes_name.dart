@@ -27,4 +27,10 @@ class RoutesName {
   static const String addresses = 'addresses_screen';
   //orders screen routes name
   static const String orders = 'orders_screen';
+  //terms screen routes name
+  static const String terms = 'terms_screen';
+  //about screen routes name
+  static const String about = 'about_screen';
+  //fAQs screen routes name
+  static const String fAQs = 'qAndAs_screen';
 }

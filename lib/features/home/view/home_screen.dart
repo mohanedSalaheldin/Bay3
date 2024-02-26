@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                               categoryTaps[provider.currentCategory].length,
                         ),
                 ),
-                const SeeMoreButton()
+                const SizedBox(height: 0.0),
               ],
             ),
           ),
