@@ -68,8 +68,8 @@ class QandAItem extends StatelessWidget {
             Text(
               answer,
               style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                fontSize: 17,
               ),
             ),
           ],

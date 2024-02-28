@@ -59,7 +59,8 @@ class MyApp extends StatelessWidget {
         title: 'E-commerce',
         onGenerateRoute: Routes.generateRoute,
         initialRoute: _chooseStartScreen(),
-        // home:  DorwerLayoutScreen(),
+        // home: const OfflineErrorScreen(),
+        // home: const NoHistoryScreen(),
       ),
     );
   }

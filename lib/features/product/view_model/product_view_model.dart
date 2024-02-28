@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
-import 'package:e_commerce/core/utils/shared/models/get_token.dart';
 import 'package:e_commerce/core/utils/shared/models/product_model.dart';
 import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:e_commerce/features/product/model/favorite_and_cart_product_model.dart';
@@ -56,9 +55,6 @@ class ProductViewModel with ChangeNotifier {
         setProductState(ProductStates.addOrRemoveError);
       },
       (products) {
-        for (var element in products) {
-          print(element.name);
-        }
         _favoriteProducts = products;
         setProductState(ProductStates.addOrRemoveSuccess);
       },
@@ -75,9 +71,6 @@ class ProductViewModel with ChangeNotifier {
         setProductState(ProductStates.addOrRemoveError);
       },
       (products) {
-        for (var element in products) {
-          print(element.name);
-        }
         _cartProducts = products;
         setProductState(ProductStates.addOrRemoveSuccess);
       },

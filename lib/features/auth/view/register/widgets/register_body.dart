@@ -61,7 +61,7 @@ SafeArea buildRegisterBody(
                   ConfirmButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                      provider.register(
+                          provider.register(
                             userEmail: emailController.text,
                             userName: nameController.text,
                             password: passwordController.text,

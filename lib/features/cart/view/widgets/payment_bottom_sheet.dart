@@ -1,13 +1,10 @@
-import 'package:dartz/dartz_unsafe.dart';
 import 'package:date_format/date_format.dart';
 import 'package:e_commerce/core/configs/styles/frequently_used_texts.dart';
 import 'package:e_commerce/core/utils/shared/components/widgets/default_button.dart';
 import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
 import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
-import 'package:e_commerce/features/addresses/model/address_model.dart';
 import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
-import 'package:e_commerce/features/cart/view/checkout_screen.dart';
 import 'package:e_commerce/features/cart/view/widgets/card_title_with_action.dart';
 import 'package:e_commerce/features/cart/view_model/cart_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';

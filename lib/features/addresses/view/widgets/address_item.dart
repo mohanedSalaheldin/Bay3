@@ -2,7 +2,6 @@ import 'package:e_commerce/core/configs/styles/app_colors.dart';
 import 'package:e_commerce/core/utils/shared/screen_sizes/screen_sizes.dart';
 import 'package:e_commerce/features/addresses/model/address_model.dart';
 import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
-import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';

@@ -40,44 +40,47 @@ class LayoutScreen extends StatelessWidget {
     return Consumer<LayoutViewModel>(
       builder: (context, provider, child) => Scaffold(
         appBar: buildLayoutAppBar(context, controller),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-
-        //   },
-        // ),
-        bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          type: BottomNavigationBarType.fixed,
-          items: items,
-          currentIndex: provider.currentIndex,
-          onTap: (value) {
-            switch (value) {
-              case 1:
-                Provider.of<FavoritesViewModel>(context, listen: false)
-                    .getFavorites();
-
-                Navigator.pushNamed(context, RoutesName.favorites);
-                break;
-              case 2:
-                Provider.of<ProfileViewModel>(context, listen: false)
-                    .getProfileData();
-                Provider.of<AddressesViewModel>(context, listen: false)
-                    .getAddresses();
-                Navigator.pushNamed(context, RoutesName.profile);
-                break;
-              case 3:
-                Provider.of<ProfileViewModel>(context, listen: false)
-                    .getProfileData();
-                Provider.of<CartViewModel>(context, listen: false).getCarts();
-                Navigator.pushNamed(context, RoutesName.cart);
-                break;
-              default:
-            }
-          },
-        ),
+        bottomNavigationBar:
+            _buildBottomNavigationBar(items, provider, context),
         body: const HomeScreen(),
       ),
+    );
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar(
+      List<BottomNavigationBarItem> items,
+      LayoutViewModel provider,
+      BuildContext context) {
+    return BottomNavigationBar(
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
+      items: items,
+      currentIndex: provider.currentIndex,
+      onTap: (value) {
+        switch (value) {
+          case 1:
+            Provider.of<FavoritesViewModel>(context, listen: false)
+                .getFavorites();
+
+            Navigator.pushNamed(context, RoutesName.favorites);
+            break;
+          case 2:
+            Provider.of<ProfileViewModel>(context, listen: false)
+                .getProfileData();
+            Provider.of<AddressesViewModel>(context, listen: false)
+                .getAddresses();
+            Navigator.pushNamed(context, RoutesName.profile);
+            break;
+          case 3:
+            Provider.of<ProfileViewModel>(context, listen: false)
+                .getProfileData();
+            Provider.of<CartViewModel>(context, listen: false).getCarts();
+            Navigator.pushNamed(context, RoutesName.cart);
+            break;
+          default:
+        }
+      },
     );
   }
 }

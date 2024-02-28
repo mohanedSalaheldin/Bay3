@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_endpoints.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/app_methods.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class ProductApiCalls {
   Future<Unit> addOrRemoveFavorite(
@@ -40,7 +39,7 @@ class ProductApiCallsImpl implements ProductApiCalls {
     try {
       Response response = await _dio.get(
         ApiEndPoints.baseURL + ApiEndPoints.favorites,
-        options: Options(headers:getAPIHeaders(token: token)),
+        options: Options(headers: getAPIHeaders(token: token)),
       );
       dynamic responseMap = response.data['data'];
       if (responseMap == null) {
@@ -57,14 +56,13 @@ class ProductApiCallsImpl implements ProductApiCalls {
   Future<Unit> addOrRemoveCart(
       {required String token, required int productID}) async {
     print(token);
-    if (token.isEmpty) {
-    }
+    if (token.isEmpty) {}
     try {
       Response response = await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.carts,
         queryParameters: {"product_id": productID},
         options: Options(
-          headers:getAPIHeaders(token: token),
+          headers: getAPIHeaders(token: token),
         ),
       );
       print(response.data['message']);
@@ -80,7 +78,7 @@ class ProductApiCallsImpl implements ProductApiCalls {
     try {
       Response response = await _dio.get(
         ApiEndPoints.baseURL + ApiEndPoints.carts,
-        options: Options(headers:getAPIHeaders(token: token)),
+        options: Options(headers: getAPIHeaders(token: token)),
       );
       dynamic responseMap = response.data['data'];
       if (responseMap == null) {

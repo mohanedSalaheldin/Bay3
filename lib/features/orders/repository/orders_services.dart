@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/repository_methods.dart';
-import 'package:e_commerce/features/addresses/model/address_model.dart';
 import 'package:e_commerce/features/orders/model/order_model.dart';
 import 'package:e_commerce/features/orders/repository/orders_api_calls.dart';
 
@@ -15,9 +14,6 @@ abstract class OrdersServices {
 class OrdersServicesImpl implements OrdersServices {
   final OrdersApiCalls _apiCalls = OrdersApiCallsImpl();
   final NetworkInfo _networkInfo = NetworkInfoImpl();
-  // ****************************************(ADDRESSES)*********************************
-
-// ****************************************(ORDERS)*********************************
 
   @override
   Future<Either<Failure, List<OrderModel>>> getOrders(
@@ -57,5 +53,4 @@ class OrdersServicesImpl implements OrdersServices {
     }
   }
 
-// ****************************************(PROFILE)*********************************
 }

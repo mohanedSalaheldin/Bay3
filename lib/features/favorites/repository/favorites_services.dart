@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/repository_methods.dart';
-import 'package:e_commerce/features/cart/repository/cart_api_calls.dart';
 import 'package:e_commerce/features/favorites/repository/favorites_api_calls.dart';
 import 'package:e_commerce/features/product/model/favorite_and_cart_product_model.dart';
 

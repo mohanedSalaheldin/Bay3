@@ -18,6 +18,7 @@ class SearchFieldAndBackBotton extends StatelessWidget {
           BackButton(
             onPressed: () {
               Navigator.pop(context);
+              provider.setSearchState(SearchStates.notRequested);
               provider.resetSearchProducts();
             },
           ),

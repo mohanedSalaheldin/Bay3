@@ -32,3 +32,13 @@ class UserDataModel {
     );
   }
 }
+/*
+{
+ name: gryuhgg, 
+ phone: 028568422365, 
+ email: dfu1@ef.b,
+ id: 62490, 
+ image: https://student.valuxapps.com/storage/assets/defaults/user.jpg,
+ token: 1P8HDNkknQR2R7JwPlHieV2e6UwNUtyucQolJwkFDBykkXe9YcCfy53q3tlJ1MBAb28K2p
+ }
+ */

@@ -5,8 +5,12 @@ class AssetsPathes {
 
   // images pathes
   static const String onboardingImage = '${images}onboarding.png';
+  static const String noFavoritesImage = '${images}noFavorites.png';
+  static const String noHistoryImage = '${images}noHistory.png';
+  static const String noSearchImage = '${images}noSearch.png';
 
   // Icons pathes
+  static const String noInternetIcon = '${icons}no_wifi.png';
   static const String emailIcon = '${icons}email_icon.png';
   static const String lockIcon = '${icons}lock_icon.png';
   static const String userIcon = '${icons}user_icon.png';

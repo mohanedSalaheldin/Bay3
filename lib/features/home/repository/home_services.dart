@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
-
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/core/utils/shared/models/product_model.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/repository_methods.dart';

@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
-import 'package:e_commerce/core/utils/shared/models/get_token.dart';
 import 'package:e_commerce/core/utils/shared/models/product_model.dart';
 import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:e_commerce/features/home/repository/home_services.dart';

@@ -56,6 +56,7 @@ class AuthServicesImpl implements AuthServices {
                 image: image);
         return Right(registerResponseModel);
       } catch (e) {
+        print(e.toString());
         return Left(ServerFailure());
       }
     } else {

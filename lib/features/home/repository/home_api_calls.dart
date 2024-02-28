@@ -1,5 +1,3 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_endpoints.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/api_calls.dart';
 
@@ -12,10 +10,6 @@ abstract class HomeApiCalls {
 }
 
 class HomeApiCallsImpl implements HomeApiCalls {
-  final Dio _dio = Dio();
-
- 
-
   @override
   Future<List<dynamic>> fetchElectronicsData({required String token}) async {
     return fetchSpacificCategory(ApiEndPoints.electonics, token);
@@ -35,8 +29,6 @@ class HomeApiCallsImpl implements HomeApiCalls {
   Future<List> fetchSportsData({required String token}) {
     return fetchSpacificCategory(ApiEndPoints.sports, token);
   }
-
-
 
   @override
   Future<List> getFavorites({required String token}) {

@@ -8,8 +8,10 @@ class DefaultTextButton extends StatelessWidget {
     super.key,
     required this.txt,
     this.onpressed,
+    this.textColor = AppColors.mainColor,
   });
 
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return TextButton(
@@ -18,8 +20,8 @@ class DefaultTextButton extends StatelessWidget {
           const ButtonStyle(padding: MaterialStatePropertyAll(EdgeInsets.zero)),
       child: Text(
         txt,
-        style: const TextStyle(
-          color: AppColors.mainColor,
+        style: TextStyle(
+          color: textColor,
           fontSize: 17.0,
         ),
       ),

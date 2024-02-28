@@ -2,11 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/internet_checker.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/repository_methods.dart';
-import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/features/addresses/model/address_model.dart';
-import 'package:e_commerce/features/orders/model/order_model.dart';
 import 'package:e_commerce/features/addresses/repository/addresses_api_calls.dart';
-import 'package:e_commerce/features/profile/repository/profile_api_calls.dart';
 
 abstract class AddressesServices {
   Future<Either<Failure, Unit>> addAddress(
@@ -20,7 +17,6 @@ abstract class AddressesServices {
 class AddressesServicesImpl implements AddressesServices {
   final AddressesApiCalls _apiCalls = AddressesApiCallsImpl();
   final NetworkInfo _networkInfo = NetworkInfoImpl();
-  // ****************************************(ADDRESSES)*********************************
   @override
   Future<Either<Failure, Unit>> addAddress(
       {required String token, required AddressModel model}) async {
@@ -43,7 +39,6 @@ class AddressesServicesImpl implements AddressesServices {
     if (await _networkInfo.isConnected) {
       try {
         await _apiCalls.removeAddress(token: token, addressID: addressID);
-
         return const Right(unit);
       } catch (e) {
         return Left(ServerFailure());

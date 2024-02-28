@@ -2,7 +2,6 @@ import 'package:e_commerce/features/addresses/model/address_model.dart';
 import 'package:e_commerce/features/addresses/view_model/addresses_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
 class UserDataCard extends StatelessWidget {

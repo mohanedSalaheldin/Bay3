@@ -11,6 +11,7 @@ enum SearchStates {
   serverError,
   connectionError,
   success,
+  noItemFound,
 }
 
 class SearchViewModel with ChangeNotifier {
@@ -54,11 +55,14 @@ class SearchViewModel with ChangeNotifier {
       },
       (searchs) {
         _searchProducts = [];
-        for (var element in searchs) {
-          print(element.name);
-        }
+
         _searchProducts = searchs;
-        setSearchState(SearchStates.success);
+        if (searchs.isEmpty) {
+          setSearchState(SearchStates.noItemFound);
+        }
+        else{
+           setSearchState(SearchStates.success);
+        }
       },
     );
   }

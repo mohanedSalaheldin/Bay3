@@ -1,10 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/utils/helpers/network/helpers/api_response_states.dart';
-import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/features/auth/view_model/login_view_model.dart';
 import 'package:e_commerce/features/addresses/model/address_model.dart';
 import 'package:e_commerce/features/addresses/repository/addresses_services.dart';
-import 'package:e_commerce/features/profile/repository/profile_services.dart';
 import 'package:flutter/material.dart';
 
 enum AddressesStates {

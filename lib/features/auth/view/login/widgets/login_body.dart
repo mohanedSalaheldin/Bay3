@@ -110,7 +110,8 @@ SafeArea buildLoginBody(
                     child: DefaultTextButton(
                       txt: 'Create account',
                       onpressed: () {
-                        Navigator.pushNamed(context, RoutesName.register);
+                        Navigator.pushReplacementNamed(
+                            context, RoutesName.register);
                       },
                     ),
                   ),

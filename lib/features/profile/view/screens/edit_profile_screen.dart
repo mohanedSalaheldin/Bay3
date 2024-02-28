@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/configs/routes/routes_name.dart';
 import 'package:e_commerce/core/utils/shared/components/methods/app_methods.dart';
 import 'package:e_commerce/core/utils/shared/components/screens/offline_error_screen.dart';
 import 'package:e_commerce/core/utils/shared/components/screens/server_error_screen.dart';
@@ -5,7 +6,6 @@ import 'package:e_commerce/core/utils/shared/components/widgets/default_button.d
 import 'package:e_commerce/core/utils/shared/components/widgets/default_form_field.dart';
 import 'package:e_commerce/core/utils/shared/components/widgets/loading_screen.dart';
 import 'package:e_commerce/core/utils/shared/constants/assets_pathes.dart';
-import 'package:e_commerce/core/utils/shared/models/user_data_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +27,9 @@ class EditProfileScreen extends StatelessWidget {
     } else if (provider.profileStates == ProfileStates.serverError) {
       return const ServerErrorScreen();
     } else if (provider.profileStates == ProfileStates.connectionError) {
-      return const OfflineErrorScreen();
+      return const OfflineErrorScreen(
+        currentScreenPath: RoutesName.editProfile,
+      );
     }
     return Scaffold(
       appBar: AppBar(

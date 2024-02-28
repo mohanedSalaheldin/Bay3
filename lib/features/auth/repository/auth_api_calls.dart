@@ -63,6 +63,7 @@ class AuthApiCallsImpl implements AuthApiCalls {
         'lang': 'en',
       }),
     );
+    print(response.data);
 
     return RegisterResponseModel.fromJson(response.data);
   }
