@@ -49,7 +49,7 @@ class ProfileViewModel with ChangeNotifier {
         }
       },
       (user) {
-        print('USER NAME IS:  ${user.name}');
+        // print('USER NAME IS:  ${user.name}');
         _userData = user;
         setProfileState(ProfileStates.success);
       },
@@ -70,7 +70,7 @@ class ProfileViewModel with ChangeNotifier {
         }
       },
       (user) {
-        print('USER NAME IS:  ${user.name}');
+        // print('USER NAME IS:  ${user.name}');
         _userData = user;
         setProfileState(ProfileStates.success);
       },

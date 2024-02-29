@@ -31,7 +31,7 @@ class SearchServicesImpl implements SearchServices {
         }
         return Right(searchs);
       } catch (e) {
-        print(e.toString());
+        // print(e.toString());
         return Left(ServerFailure());
       }
     } else {

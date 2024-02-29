@@ -18,7 +18,7 @@ class AddressesApiCallsImpl implements AddressesApiCalls {
   Future<Unit> addAddress(
       {required String token, required AddressModel model}) async {
     try {
-      Response response = await _dio.post(
+      await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.addresses,
         queryParameters: {
           "name": model.name,
@@ -33,11 +33,11 @@ class AddressesApiCallsImpl implements AddressesApiCalls {
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data);
+      // print(response.data);
 
       return Future.value(unit);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return Future.value(unit);
     }
   }
@@ -54,7 +54,7 @@ class AddressesApiCallsImpl implements AddressesApiCalls {
       List responseMap = response.data['data']['data'];
       return Future.value(responseMap);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }
@@ -63,17 +63,17 @@ class AddressesApiCallsImpl implements AddressesApiCalls {
   Future<Unit> removeAddress(
       {required String token, required String addressID}) async {
     try {
-      Response response = await _dio.delete(
+     await _dio.delete(
         '${ApiEndPoints.baseURL}${ApiEndPoints.addresses}/$addressID',
         options: Options(
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data);
+      // print(response.data);
 
       return Future.value(unit);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return Future.value(unit);
     }
   }

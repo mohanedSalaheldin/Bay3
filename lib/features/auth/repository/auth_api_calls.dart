@@ -25,7 +25,7 @@ class AuthApiCallsImpl implements AuthApiCalls {
     required String userEmail,
     required String password,
   }) async {
-    print('******************(AuthApiCallsImpl)*****************');
+    // print('******************(AuthApiCallsImpl)*****************');
     Response response = await _dio.post(
       ApiEndPoints.baseURL + ApiEndPoints.login,
       queryParameters: {
@@ -37,7 +37,7 @@ class AuthApiCallsImpl implements AuthApiCalls {
         'lang': 'en',
       }),
     );
-    print(response.data);
+    // print(response.data);
 
     return LoginResponseModel.fromJson(response.data);
   }
@@ -63,7 +63,7 @@ class AuthApiCallsImpl implements AuthApiCalls {
         'lang': 'en',
       }),
     );
-    print(response.data);
+    // print(response.data);
 
     return RegisterResponseModel.fromJson(response.data);
   }

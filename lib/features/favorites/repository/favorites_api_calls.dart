@@ -17,14 +17,14 @@ class FavoritesApiCallsImpl implements FavoritesApiCalls {
   Future<Unit> removeFavoritesItem(
       {required String token, required int productID}) async {
     try {
-      Response response = await _dio.post(
+      await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.favorites,
         queryParameters: {"product_id": productID},
         options: Options(
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data['message']);
+      // print(response.data['message']);
       return unit;
     } on Exception {
       return unit;
@@ -44,7 +44,7 @@ class FavoritesApiCallsImpl implements FavoritesApiCalls {
       }
       return Future.value(responseMap['data']);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }

@@ -15,7 +15,7 @@ Future<List<dynamic>> fetchSpacificCategory(
     );
     return Future.value(response.data['data']['data']);
   } catch (e) {
-    print(e.toString());
+    // print(e.toString());
     return [];
   }
 }

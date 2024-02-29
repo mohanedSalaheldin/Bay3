@@ -34,7 +34,7 @@ class SearchApiCallsImpl implements SearchApiCalls {
       }
       return Future.value(responseMap['data']);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }

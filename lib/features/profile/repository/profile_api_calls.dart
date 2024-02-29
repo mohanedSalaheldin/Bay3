@@ -34,11 +34,11 @@ class ProfileApiCallsImpl implements ProfileApiCalls {
         },
       );
       dynamic responseMap = response.data['data'];
-      print(response);
+      // print(response);
 
       return Future.value(responseMap);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       // return Future.value(unit);
     }
   }
@@ -57,7 +57,7 @@ class ProfileApiCallsImpl implements ProfileApiCalls {
 
       return Future.value(responseMap);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
     }
   }
 

@@ -26,7 +26,7 @@ class ProfileServicesImpl implements ProfileServices {
         Map<String, dynamic> response =
             await _profileApiCalls.editProfile(token: token, model: model);
         UserDataModel user = UserDataModel.fromJson(response);
-        print(user.name);
+        // print(user.name);
         return Right(user);
       } catch (e) {
         return Left(ServerFailure());
@@ -45,10 +45,10 @@ class ProfileServicesImpl implements ProfileServices {
           token: token,
         ) as Map<String, dynamic>;
         UserDataModel user = UserDataModel.fromJson(response);
-        print(user.name);
+        // print(user.name);
         return Right(user);
       } catch (e) {
-        print(e.toString());
+        // print(e.toString());
         return Left(ServerFailure());
       }
     } else {
@@ -63,7 +63,7 @@ class ProfileServicesImpl implements ProfileServices {
       cacheHelper.saveData(USER_TOKEN_KEY, '');
       return const Right(unit);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return Left(ServerFailure());
     }
   }

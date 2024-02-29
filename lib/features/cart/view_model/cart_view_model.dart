@@ -59,7 +59,7 @@ class CartViewModel with ChangeNotifier {
       (carts) {
         List<int> listOfIDs = [];
         for (var element in carts) {
-          print(element.name);
+          // print(element.name);
           listOfIDs.add(element.id);
         }
         _cartsProducts = carts;

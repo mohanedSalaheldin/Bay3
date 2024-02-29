@@ -17,14 +17,14 @@ class CartApiCallsImpl implements CartApiCalls {
   Future<Unit> addOrRemoveCartItem(
       {required String token, required int productID}) async {
     try {
-      Response response = await _dio.post(
+       await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.carts,
         queryParameters: {"product_id": productID},
         options: Options(
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data['message']);
+      // print(response.data['message']);
       return unit;
     } on Exception {
       return unit;
@@ -44,7 +44,7 @@ class CartApiCallsImpl implements CartApiCalls {
       }
       return Future.value(responseMap['cart_items']);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }
@@ -67,7 +67,7 @@ class CartApiCallsImpl implements CartApiCalls {
       );
       return Future.value(unit);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return unit;
     }
   }

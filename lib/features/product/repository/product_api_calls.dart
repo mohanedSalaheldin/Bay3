@@ -20,14 +20,14 @@ class ProductApiCallsImpl implements ProductApiCalls {
   Future<Unit> addOrRemoveFavorite(
       {required String token, required int productID}) async {
     try {
-      Response response = await _dio.post(
+       await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.favorites,
         queryParameters: {"product_id": productID},
         options: Options(
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data['message']);
+      // print(response.data['message']);
       return unit;
     } on Exception {
       return unit;
@@ -47,7 +47,7 @@ class ProductApiCallsImpl implements ProductApiCalls {
       }
       return Future.value(responseMap['data']);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }
@@ -55,17 +55,17 @@ class ProductApiCallsImpl implements ProductApiCalls {
   @override
   Future<Unit> addOrRemoveCart(
       {required String token, required int productID}) async {
-    print(token);
+    // print(token);
     if (token.isEmpty) {}
     try {
-      Response response = await _dio.post(
+      await _dio.post(
         ApiEndPoints.baseURL + ApiEndPoints.carts,
         queryParameters: {"product_id": productID},
         options: Options(
           headers: getAPIHeaders(token: token),
         ),
       );
-      print(response.data['message']);
+      // print(response.data['message']);
       return unit;
     } on Exception {
       return unit;
@@ -74,7 +74,7 @@ class ProductApiCallsImpl implements ProductApiCalls {
 
   @override
   Future<List> getCart({required String token}) async {
-    print(token);
+    // print(token);
     try {
       Response response = await _dio.get(
         ApiEndPoints.baseURL + ApiEndPoints.carts,
@@ -86,7 +86,7 @@ class ProductApiCallsImpl implements ProductApiCalls {
       }
       return Future.value(responseMap['cart_items']);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }

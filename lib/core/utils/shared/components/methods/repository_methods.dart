@@ -27,7 +27,7 @@ Future<Either<Failure, List<ProductModel>>> getProducts(
       }
       return Right(products);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return Left(ServerFailure());
     }
   } else {

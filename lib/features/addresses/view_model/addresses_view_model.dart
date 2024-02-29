@@ -45,9 +45,7 @@ class AddressesViewModel with ChangeNotifier {
         }
       },
       (addreses) {
-        for (var element in addreses) {
-          print(element.name);
-        }
+        
         _addresses = addreses;
         setAddressesState(AddressesStates.success);
       },

@@ -12,6 +12,7 @@ import 'package:e_commerce/features/orders/view_model/orders_view_model.dart';
 import 'package:e_commerce/features/profile/view_model/profile_view_model.dart';
 import 'package:e_commerce/features/search/view_model/search_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Future.delayed(const Duration(milliseconds: 500), () {
+      FlutterNativeSplash.remove();
+    // });
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(

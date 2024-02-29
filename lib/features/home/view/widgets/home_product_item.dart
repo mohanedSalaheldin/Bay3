@@ -17,6 +17,8 @@ class HomeProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = ScreenSizes.getHeight(context);
     return InkWell(
+      splashColor: Colors.white,
+      highlightColor: Colors.white,
       onTap: () {
         Provider.of<ProductViewModel>(context, listen: false).getFavorites();
         Provider.of<ProductViewModel>(context, listen: false).getCarts();

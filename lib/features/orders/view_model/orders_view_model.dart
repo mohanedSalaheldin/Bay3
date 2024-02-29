@@ -45,9 +45,7 @@ class OrdersViewModel with ChangeNotifier {
         }
       },
       (orders) {
-        for (var element in orders) {
-          print(element.total);
-        }
+       
         _orders = orders;
         setOrdersState(OrdersStates.success);
       },

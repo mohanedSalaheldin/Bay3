@@ -55,9 +55,9 @@ class RegisterViewModel with ChangeNotifier {
     required String phone,
     required String image,
   }) async {
-    print('******************(RegisterViewModel)*****************');
+    // print('******************(RegisterViewModel)*****************');
     setRegisterState(RegisterStates.loading);
-    print('******************(RegisterViewModel)*****************');
+    // print('******************(RegisterViewModel)*****************');
 
     Either<Failure, RegisterResponseModel> reponse = await _services.register(
       userEmail: userEmail,
@@ -80,7 +80,7 @@ class RegisterViewModel with ChangeNotifier {
         setRegisterState(RegisterStates.error);
       },
       (model) {
-        print(model.status);
+        // print(model.status);
         setRegisterResult(RegisterResponseModel(
             status: model.status, message: model.message));
         if (model.status == true) {

@@ -23,10 +23,10 @@ class OrdersApiCallsImpl implements OrdersApiCalls {
         ),
       );
       List responseMap = response.data['data']['data'];
-      print(response.data);
+      // print(response.data);
       return Future.value(responseMap);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return [];
     }
   }
@@ -45,7 +45,7 @@ class OrdersApiCallsImpl implements OrdersApiCalls {
 
       return Future.value(unit);
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return unit;
     }
   }

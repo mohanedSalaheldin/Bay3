@@ -10,7 +10,7 @@ class CacheHelperImpl implements CacheHelper {
   Future<String?> getData(String key) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String? saved = preferences.getString(key);
-    print('${saved ?? 'No TOKEN'} have been cached');
+    // print('${saved ?? 'No TOKEN'} have been cached');
     return Future.value(saved);
   }
 
