@@ -11,6 +11,13 @@ I developed this project primarily to **sharpen my skills** in **building comple
 - **Local Storage:** Caching using SharedPrefrances.
 
 
+### 📱Screenshots
+
+![3](https://github.com/mohanedSalaheldin/Bay3/assets/96516930/f898ab28-53a0-4840-9e3b-19629b8c4308)
+![4](https://github.com/mohanedSalaheldin/Bay3/assets/96516930/93650ff9-1826-448b-9096-4ccdb6767a56)
+
+
+
 ### 📱Demo
 
 A live demo of the application can be accessed [**Download APK release🔻**](https://www.mediafire.com/file/h74co9417ao3uv7/Bay3_Mobile_Application.apk/file).
