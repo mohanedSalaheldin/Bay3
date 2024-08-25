@@ -12,9 +12,9 @@ I developed this project primarily to **sharpen my skills** in **building comple
 
 
 ### 📱Screenshots
+![02_ecommerce](https://github.com/user-attachments/assets/f52cb867-e9fa-44ff-b148-ed475c44bf43)
 
-![3](https://github.com/mohanedSalaheldin/Bay3/assets/96516930/f898ab28-53a0-4840-9e3b-19629b8c4308)
-![4](https://github.com/mohanedSalaheldin/Bay3/assets/96516930/93650ff9-1826-448b-9096-4ccdb6767a56)
+
 
 
 
